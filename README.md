@@ -1,6 +1,6 @@
 # SQL Queries Repository
 
-Welcome to my SQL Queries repository! This repository contains SQL queries and related files to showcase my skills in database management, data analysis, and visualization.
+Welcome to my SQL Queries repository! This repository contains SQL queries and related files to showcase my skills in database management, data analysis, and visualization using this PostgreSQL [Sample Database](./https://www.postgresqltutorial.com/postgresql-getting-started/postgresql-sample-database/).
 
 ## Contents
 
