@@ -12,7 +12,7 @@ Welcome to my SQL Queries repository! This repository contains SQL queries and r
 
 ## Usage
 
-- **Presentation**: Open the PowerPoint presentation to view SQL questions and their corresponding answers. Use this resource to assess my knowledge and problem-solving skills in SQL. The data visualization charts to understand how SQL queries can be used to derive meaningful insights from data. The visualization highlights key metrics and trends.
+- **Presentation**: Open the PowerPoint pdf presentation to view SQL questions and their corresponding answers. Use this resource to assess my knowledge and problem-solving skills in SQL. The data visualization charts to understand how SQL queries can be used to derive meaningful insights from data. The visualization highlights key metrics and trends.
   
 - **SQL Queries**: Explore the SQL queries file to see the code behind the presentation and data visualization. Feel free to review, modify, or run the queries to analyze the data further.
 
