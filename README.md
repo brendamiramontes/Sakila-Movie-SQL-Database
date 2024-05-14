@@ -7,7 +7,7 @@ Welcome to my SQL Queries repository! This repository contains SQL queries and r
 1. [Presentation: SQL Questions and Answers](./sql-project-miramontesb-PPT.pdf)
    - This PowerPoint presentation contains a series of SQL questions along with their answers. Each question challenges different aspects of database querying and manipulation.
 
-3. [SQL Queries](./SQL_Queries.sql)
+3. [SQL Queries](./sql-queries.txt)
    - This file contains a collection of SQL queries used to generate the data for the presentation and data visualization. The queries demonstrate various SQL functionalities, including data retrieval, aggregation, subqueries, joining, CTE, and window functions.
 
 ## Usage
