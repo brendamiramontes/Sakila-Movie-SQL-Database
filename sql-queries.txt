@@ -1,0 +1,75 @@
+--Question 1 
+SELECT t1.film_id, t1.movie_title, t1.film_category, t2.rent_freq, t3.total_sales
+FROM (SELECT f.film_id, f.title as movie_title, c.name as film_category
+  FROM film f
+  JOIN film_category fc
+  ON f.film_id = fc.film_id
+  JOIN category c
+  ON fc.category_id  = c.category_id
+  GROUP BY f.film_id, f.title, c.name) t1
+JOIN (SELECT f.film_id, COUNT(r.rental_id) as rent_freq
+  	FROM rental r
+  	JOIN inventory i
+  	ON i.inventory_id = r.inventory_id
+  	JOIN film f
+  	ON f.film_id = i.film_id
+  	GROUP BY f.film_id) t2
+ON t1.film_id = t2.film_id
+ JOIN (SELECT f.film_id, SUM(p.amount) as total_sales
+   	FROM payment p
+   	JOIN rental r
+   	ON r.rental_id = p.rental_id
+   	JOIN inventory i
+   	ON i.inventory_id = r.inventory_id
+   	JOIN film f
+   	ON f.film_id = i.film_id
+   	GROUP BY f.film_id) t3
+ ON t1.film_id = t3.film_id
+GROUP BY t1.film_id, t1.movie_title, t1.film_category, t2.rent_freq, t3.total_sales
+ORDER BY t2.rent_freq, t3.total_sales;
+
+
+--QUESTION 2
+SELECT f.film_id, f.title, c.name AS category_name, f.rental_duration,
+    NTILE(4) OVER (ORDER BY avg_rental_duration) AS standard_quartile
+FROM film f
+JOIN (SELECT film_id, AVG(rental_duration) AS avg_rental_duration
+  	FROM film
+  	GROUP BY film_id) AS avg_rental_duration_table
+ON f.film_id = avg_rental_duration_table.film_id
+JOIN film_category fc
+ON f.film_id = fc.film_id
+JOIN category c
+ON fc.category_id = c.category_id
+WHERE c.name IN ('Children', 'Family', 'Animation', 'Music');
+
+--Question 3:
+WITH movie_avg_duration
+AS (SELECT film_id, NTILE(4) OVER (ORDER BY AVG(rental_duration)) AS standard_quartile
+    FROM film
+    GROUP BY film_id),
+family_friendly_movies
+AS (SELECT f.film_id, c.name AS category_name, mad.standard_quartile
+    FROM  film f
+    JOIN movie_avg_duration mad
+    ON f.film_id = mad.film_id
+    JOIN film_category fc
+    ON f.film_id = fc.film_id
+    JOIN category c
+    ON fc.category_id = c.category_id
+    WHERE c.name IN ('Children', 'Family', 'Animation', 'Music'))              	
+SELECT category_name, standard_quartile, COUNT(*) AS movie_count
+FROM family_friendly_movies
+GROUP BY 1,2
+ORDER BY 1,2;
+
+--Question 4:
+SELECT c.store_id, EXTRACT(Year from rental_date) as rental_year, EXTRACT(month from rental_date) as rental_month, COUNT(p.rental_id), SUM(p.amount) as total_sales
+FROM rental r
+JOIN customer c
+ON r.customer_id = c.customer_id
+JOIN payment p
+ON p.rental_id = r.rental_id
+GROUP BY 1,2,3
+ORDER BY 4;
+
