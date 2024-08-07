@@ -1,6 +1,6 @@
-# SQL Queries Repository
+# Sakila Movie SQL Database Project 
 
-Welcome to my SQL Queries repository! This repository contains SQL queries and related files to showcase my skills in database management, data analysis, and visualization using this PostgreSQL [Sample Database](https://www.postgresqltutorial.com/postgresql-getting-started/postgresql-sample-database/).
+Welcome to my Sakila Movie SQL Database Project  repository! This repository contains SQL queries and related files to showcase my skills in database management, data analysis, and visualization using this PostgreSQL [Sample Database](https://www.postgresqltutorial.com/postgresql-getting-started/postgresql-sample-database/).
 
 ## Contents
 
@@ -16,9 +16,5 @@ Welcome to my SQL Queries repository! This repository contains SQL queries and r
   
 - **SQL Queries**: Explore the SQL queries file to see the code behind the presentation and data visualization. Feel free to review, modify, or run the queries to analyze the data further.
 
-## About Me
-
-I am a skilled data professional with expertise in SQL, database management, and data analysis. This repository showcases my proficiency in leveraging SQL to extract, transform, and visualize data for decision-making purposes.
-
-Please feel free to reach out if you have any questions or would like to discuss potential opportunities for collaboration.
-
+## Acknowledgements
+This project is part of a Udacity course on Python programming and data analysis.
